@@ -90,7 +90,9 @@ NVIDIA-SMI 535.154.05 / Driver Version: 535.154.05 / CUDA Version: 12.2
 | YoonDDo/ft_t5-base2     | 0.2105 | 0.0608 | 0.2086 | 0.2085    |
 
 YoonDDo/ft_t5-base0 : psyche/koT5 모델 레퍼지토리 내 train.py로 파인튜닝
+
 YoonDDo/ft_t5-base1 : eenzeenee/t5-small-korean-summarization 모델 레퍼지토리 내 train.py로 파인튜닝
+
 YoonDDo/ft_t5-base2 : noahkim/KoT5_news_summarization 모델 레퍼지토리 내 train.py로 파인튜닝
 
 
