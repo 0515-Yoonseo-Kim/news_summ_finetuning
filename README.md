@@ -31,14 +31,6 @@ AIhub의 생성요약(Abstractive Summarization)을 위한 한국어 데이터 �
 
 validation set와 train set의 비율 분포가 비슷한 클래스 분포를 가지고 있기 때문에 모델 학습과 훈련에 적합한 데이터 셋이다.
 
-
-
-- CATEGORY
-
-| | Count |
-|--------|-------|
-| REPORT | 146771 |
-
 - PASSAGE
 
   
@@ -73,3 +65,35 @@ features: ['input_ids', 'attention_mask', 'labels']
 - labels
   summarization(short)의 토큰화 결과
   MAX_TARGET_LENGTH = 128
+
+
+## 2. 모델
+### 2.1. 모델 설명
+Huggingface의 pretrained된 모델들과 AutoModelForSeq2SeqLM로 가져와서 파인튜닝
+
+### 2.2. 모델 학습
+train_batch_size = 4
+epoch=2
+## 3. 실험 및 결과
+# 3.1. 환경
+NVIDIA-SMI 535.154.05 / Driver Version: 535.154.05 / CUDA Version: 12.2
+
+
+# 3.2. 결과
+메모리 문제로 trainer의 do_eval argument로 평가 진행X eval.py스크립트에서 파이프라인 불러와서 진행
+
+| Model          | rouge1 | rouge2 | rougeL | rougeLsum |
+|----------------|--------|--------|--------|-----------|
+| psyche/KoT5(baselilne)    | 0.0964 | 0.0228 | 0.0942 | 0.0942    |
+| YoonDDo/ft_t5-base0     | **0.2179** | **0.0659** | **0.2158** | **0.2157**    |
+| YoonDDo/ft_t5-base1  | 0.1828 | 0.0513 | 0.1813 | 0.1815    |
+| YoonDDo/ft_t5-base2     | 0.2105 | 0.0608 | 0.2086 | 0.2085    |
+
+YoonDDo/ft_t5-base0 : psyche/koT5 모델 레퍼지토리 내 train.py로 파인튜닝
+YoonDDo/ft_t5-base1 : eenzeenee/t5-small-korean-summarization 모델 레퍼지토리 내 train.py로 파인튜닝
+YoonDDo/ft_t5-base2 : noahkim/KoT5_news_summarization 모델 레퍼지토리 내 train.py로 파인튜닝
+
+
+## 4. 참고
+
+
