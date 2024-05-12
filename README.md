@@ -1,6 +1,3 @@
-# News_summ_finetuning
-This repository is for summarization fine-tuning project
-
 # Introduction
 
 Huggingface 오픈소스를 활용한 Summarization Fine-tuning 프로젝트입니다. 이 프로젝트의 주요 학습 목표는 다음과 같습니다.
