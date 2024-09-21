@@ -9,7 +9,7 @@ max_length = st.slider("Max summary length:", 50, 300, 128)
 
 if st.button('Summarize'):
     if input_text:
-        response = requests.post("http://localhost:8000/summarize/",
+        response = requests.post("http://localhost:8000/summarize",
                                  json = {
                                      "text": input_text,
                                      "max_length": max_length
